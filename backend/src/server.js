@@ -1,8 +1,23 @@
 import express from 'express';
+import cors from 'cors';
+import {clerkMiddleware} from '@clerk/express';
 import { ENV } from './config/env.js';
 import { connectDB } from './config/db.js';
 
+import userRoutes from './routes/user.route.js';
+
 const app = express();
+
+// Middleware to enable CORS
+app.use(cors());
+// Middleware to parse JSON data
+app.use(express.json());
+
+// Middleware to parse URL-encoded data
+app.use(clerkMiddleware());
+
+//routes
+app.use("/api/users",userRoutes)
 
 //connect to database
 // connectDB();
