@@ -7,7 +7,8 @@ import { connectDB } from './config/db.js';
 import userRoutes from './routes/user.route.js';
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
-// import notificationRoutes from "./routes/notification.route.js";
+import notificationRoutes from "./routes/notification.route.js";
+import { arcjetMiddleware } from './middleware/arcjet.middleware.js';
 
 
 const app = express();
@@ -19,12 +20,13 @@ app.use(express.json());
 
 // Middleware to parse URL-encoded data
 app.use(clerkMiddleware());
+app.use(arcjetMiddleware);
 
 //routes
 app.use("/api/users",userRoutes)
 app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
-// app.use("/api/notifications", notificationRoutes);
+app.use("/api/notifications", notificationRoutes);
 
 
 // error handling middleware
