@@ -8,7 +8,10 @@ import userRoutes from './routes/user.route.js';
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
 import notificationRoutes from "./routes/notification.route.js";
+<<<<<<< HEAD
 import { arcjetMiddleware } from './middleware/arcjet.middleware.js';
+=======
+>>>>>>> master
 
 
 const app = express();
@@ -62,5 +65,10 @@ const startServer = async () => {
 
 startServer();
 
+<<<<<<< HEAD
 //export vercel app
 export default app;
+=======
+
+export default app;
+>>>>>>> master
