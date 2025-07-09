@@ -35,16 +35,12 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message || "Internal server error" });
 })
 
-//connect to database
-// connectDB();
+
 
 app.get('/', (req, res) => {
   res.send('Hello, World! Server is running.');
 });
 
-// app.listen(ENV.PORT, () => {
-//   console.log('Server is running on port :', ENV.PORT);
-// });
 
 const startServer = async () => {
   try {
