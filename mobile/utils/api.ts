@@ -1,18 +1,38 @@
 import axios, { AxiosInstance } from "axios";
 import { useAuth } from "@clerk/clerk-expo";
 
-const API_BASE_URL = "https://peepr-weld.vercel.app/api";
+const API_BASE_URL = "https://peepr-4sa8.vercel.app/api";
 // ! 🔥 localhost api would not work on your actual physical device
 // const API_BASE_URL = "http://localhost:5001/api";
 
 // this will basically create an authenticated api, pass the token into our headers
+// export const createApiClient = (getToken: () => Promise<string | null>): AxiosInstance => {
+//   const api = axios.create({ baseURL: API_BASE_URL });
+
+//   api.interceptors.request.use(async (config) => {
+//     const token = await getToken();
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`;
+//     }
+//     return config;
+//   });
+
+//   return api;
+// };
+
 export const createApiClient = (getToken: () => Promise<string | null>): AxiosInstance => {
   const api = axios.create({ baseURL: API_BASE_URL });
 
   api.interceptors.request.use(async (config) => {
     const token = await getToken();
+    console.log("API Request:", {
+      url: config.url,
+      token: token ? "Present" : "Missing",
+    });
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+    } else {
+      console.warn("No token available for request:", config.url);
     }
     return config;
   });
