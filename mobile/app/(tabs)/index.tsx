@@ -1,9 +1,11 @@
 import SignOutButton from "@/components/SignOutButton";
+import { useUserSync } from "@/hooks/useUserSync";
 import { Ionicons } from "@expo/vector-icons";
 import { View, Text} from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
+  useUserSync(); // Sync user data on mount
 
   const insets = useSafeAreaInsets();
 
