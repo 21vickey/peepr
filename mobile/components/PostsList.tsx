@@ -36,7 +36,7 @@ const PostsList = ({ username }: { username?: string }) => {
 
   if (posts.length === 0) {
     return (
-      <View className="p-8 items-center">
+      <View className="p-8 items-center justify-center">
         <Text className="text-gray-500">No posts yet</Text>
       </View>
     );
