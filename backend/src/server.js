@@ -8,10 +8,12 @@ import userRoutes from './routes/user.route.js';
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
 import notificationRoutes from "./routes/notification.route.js";
-import { arcjetMiddleware } from './middleware/arcjet.middleware.js';
+// import { arcjetMiddleware } from './middleware/arcjet.middleware.js';
 
 
 const app = express();
+
+connectDB();
 
 // Middleware to enable CORS
 app.use(cors());
@@ -20,7 +22,7 @@ app.use(express.json());
 
 // Middleware to parse URL-encoded data
 app.use(clerkMiddleware());
-app.use(arcjetMiddleware);
+// app.use(arcjetMiddleware());
 
 //routes
 app.use("/api/users",userRoutes)
@@ -41,6 +43,9 @@ app.get('/', (req, res) => {
   res.send('Hello, World! Server is running.');
 });
 
+// app.listen(ENV.PORT,'192.168.29.249', () => {
+//   console.log('Server is running on port :', ENV.PORT);
+// });
 
 const startServer = async () => {
   try {
@@ -48,7 +53,7 @@ const startServer = async () => {
 
     // listen for local development
     if (ENV.NODE_ENV !== "production") {
-      app.listen(ENV.PORT, () => console.log("Server is up and running on PORT:", ENV.PORT));
+      app.listen(ENV.PORT,'192.168.29.249',  () => console.log("Server is up and running on PORT:", ENV.PORT));
     }
   } catch (error) {
     console.error("Failed to start server:", error.message);
