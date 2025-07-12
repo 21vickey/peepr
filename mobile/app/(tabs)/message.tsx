@@ -55,7 +55,7 @@ const MessageScreen = () => {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white" style={{ paddingTop: insets.top }} edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-white"  edges={["top"]}>
     {/* HEADER */}
       <View className="flex-row items-center justify-between px-4 py-3 border-b border-gray-100">
         <Text className="text-xl font-bold text-gray-900">Messages</Text>

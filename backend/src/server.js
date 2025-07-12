@@ -13,7 +13,7 @@ import notificationRoutes from "./routes/notification.route.js";
 
 const app = express();
 
-connectDB();
+
 
 // Middleware to enable CORS
 app.use(cors());
@@ -43,9 +43,6 @@ app.get('/', (req, res) => {
   res.send('Hello, World! Server is running.');
 });
 
-// app.listen(ENV.PORT,'192.168.29.249', () => {
-//   console.log('Server is running on port :', ENV.PORT);
-// });
 
 const startServer = async () => {
   try {
@@ -53,7 +50,7 @@ const startServer = async () => {
 
     // listen for local development
     if (ENV.NODE_ENV !== "production") {
-      app.listen(ENV.PORT,'192.168.29.249',  () => console.log("Server is up and running on PORT:", ENV.PORT));
+      app.listen(ENV.PORT, () => console.log("Server is up and running on PORT:", ENV.PORT));
     }
   } catch (error) {
     console.error("Failed to start server:", error.message);
