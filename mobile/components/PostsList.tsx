@@ -2,7 +2,7 @@ import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { Post } from "@/types";
 import { View, Text, ActivityIndicator, TouchableOpacity } from "react-native";
 import { useState } from "react";
-// import CommentsModal from "./CommentsModal";
+import CommentsModal from "./CommentsModal";
 import PostCard from "./PostCard";
 import { usePosts } from "@/hooks/usePosts";
 
@@ -56,7 +56,7 @@ const PostsList = ({ username }: { username?: string }) => {
         />
       ))}
 
-      {/* <CommentsModal selectedPost={selectedPost} onClose={() => setSelectedPostId(null)} /> */}
+      <CommentsModal selectedPost={selectedPost} onClose={() => setSelectedPostId(null)} />
     </>
   );
 };

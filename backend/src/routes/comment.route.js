@@ -13,6 +13,6 @@ router.get("/post/:postId", getComments);
 
 // protected routes
 router.post("/post/:postId", protectRoute, createComment);
-router.delete("/:commentId", protectRoute, deleteComment);
+router.delete("/:commentId" , protectRoute, deleteComment);
 
 export default router;
